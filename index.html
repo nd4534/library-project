@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Library Management System</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #007bff;
+      --secondary-color: #6c757d;
+      --success-color: #28a745;
+      --info-color: #17a2b8;
+      --light-bg: #f8f9fa;
+      --dark-text: #343a40;
+    }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: var(--light-bg);
+      color: var(--dark-text);
+    }
+    .navbar {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .jumbotron {
+      background-image: url('https://images.unsplash.com/photo-1521587765099-ef275f4625d6?q=80&w=2670&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 4rem 2rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      border-radius: 0;
+      margin-bottom: 0;
+    }
+    .jumbotron h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+    }
+    .jumbotron p {
+      font-size: 1.25rem;
+    }
+    .card {
+      border: none;
+      border-radius: 10px;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+    .icon-box {
+      font-size: 2rem;
+      color: var(--primary-color);
+      background-color: rgba(0, 123, 255, 0.1);
+      border-radius: 50%;
+      padding: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 60px;
+      width: 60px;
+      margin-bottom: 1rem;
+    }
+    .book-item img {
+      width: 100px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-right: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <i class="fas fa-book-reader"></i> LMS
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Catalog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">My Account</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact</a>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="button" onclick="location.href='login.html'">Login</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1 class="display-4">Modern Library Management System</h1>
+    <p class="lead">Automating knowledge access for the digital age.</p>
+    <a href="#" class="btn btn-primary btn-lg mt-3">Explore Now</a>
+  </div>
+</div>
+
+<main class="py-5">
+  <div class="container">
+
+    <section class="mb-5 text-center">
+      <h2 class="mb-4">Streamlined Library Operations</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card p-4">
+            <div class="icon-box"><i class="fas fa-barcode"></i></div>
+            <h4 class="card-title">Automated Circulation</h4>
+            <p class="card-text">Fast and error-free book issue and return processes.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-4">
+            <div class="icon-box"><i class="fas fa-search"></i></div>
+            <h4 class="card-title">Real-Time Inventory</h4>
+            <p class="card-text">Track every book in the collection with live updates.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-4">
+            <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+            <h4 class="card-title">Analytics Dashboard</h4>
+            <p class="card-text">Data-driven insights for collection and user management.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔎 Search Bar for Books -->
+    <section class="mb-5">
+      <h2 class="text-center mb-4">Search Books</h2>
+      <div class="row justify-content-center mb-4">
+        <div class="col-md-6">
+          <input type="text" id="bookSearch" class="form-control" placeholder="Search by title or author...">
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-5">
+      <h2 class="text-center mb-4">New Arrivals</h2>
+      <div class="row" id="bookList">
+        <div class="col-md-4">
+          <div class="card book-item p-3 d-flex flex-row align-items-center">
+            <img src="https://images.unsplash.com/photo-1544947953-e98418579483?q=80&w=2574&auto=format&fit=crop" alt="Book Cover 1" class="img-fluid">
+            <div>
+              <h5 class="card-title mb-1">The Digital Age</h5>
+              <p class="card-text mb-0"><strong>Author:</strong> John Doe</p>
+              <p class="card-text text-muted">Available</p>
+              <button class="btn btn-sm btn-primary">Borrow</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card book-item p-3 d-flex flex-row align-items-center">
+            <img src="https://images.unsplash.com/photo-1582049280911-37f90f2095dc?q=80&w=2670&auto=format&fit=crop" alt="Book Cover 2" class="img-fluid">
+            <div>
+              <h5 class="card-title mb-1">Hackathon Guide</h5>
+              <p class="card-text mb-0"><strong>Author:</strong> Jane Smith</p>
+              <p class="card-text text-muted">Available</p>
+              <button class="btn btn-sm btn-primary">Borrow</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card book-item p-3 d-flex flex-row align-items-center">
+            <img src="https://images.unsplash.com/photo-1599818290333-e18e3c155d8f?q=80&w=2670&auto=format&fit=crop" alt="Book Cover 3" class="img-fluid">
+            <div>
+              <h5 class="card-title mb-1">Data Science Fundamentals</h5>
+              <p class="card-text mb-0"><strong>Author:</strong> David Chen</p>
+              <p class="card-text text-muted">Available</p>
+              <button class="btn btn-sm btn-primary">Borrow</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="bg-dark text-white text-center py-4 mt-5">
+  <p class="mb-0">© 2024 Modern Library Management System. All Rights Reserved.</p>
+  <p class="mb-0"><small>Developed by your hackathon team.</small></p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- 🔎 Book Search Script -->
+<script>
+  document.getElementById("bookSearch").addEventListener("keyup", function() {
+    let query = this.value.toLowerCase();
+    let books = document.querySelectorAll("#bookList .book-item");
+    
+    books.forEach(function(book) {
+      let title = book.querySelector(".card-title").textContent.toLowerCase();
+      let author = book.querySelector(".card-text").textContent.toLowerCase();
+      
+      if (title.includes(query) || author.includes(query)) {
+        book.parentElement.style.display = "block";
+      } else {
+        book.parentElement.style.display = "none";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
