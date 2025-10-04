@@ -137,7 +137,7 @@
 
     <!-- User Login -->
     <form class="form active" id="userForm" onsubmit="return validateLogin('user')">
-      <input type="number" id="userRoll" placeholder="Enter Roll Number" >
+      <input type="text" id="userRoll" placeholder="Enter Roll Number" required inputmode="numeric" pattern="[0-9]*">
       <input type="password" id="userPass" placeholder="Enter Password" required>
 
       <div class="captcha-box">
@@ -234,4 +234,5 @@
 </body>
 
 </html>
+
 
